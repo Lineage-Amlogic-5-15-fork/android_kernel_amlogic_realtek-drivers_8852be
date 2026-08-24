@@ -39,8 +39,15 @@ void pci_free_cache_mem(struct pci_dev *pdev, void *vir_addr,
 void pci_free_noncache_mem(struct pci_dev *pdev, void *vir_addr,
 	dma_addr_t *bus_addr, size_t size);
 #endif
+
 int platform_wifi_power_on(void);
 void platform_wifi_power_off(void);
+
+/* Exported function from wifi_dt.c / Kernel 5.15+ */
+extern void set_usb_wifi_power(int is_power);
+extern void pci_remove(void);
+extern void pci_reinit(void);
+
 void platform_wifi_get_oob_irq(int *oob_irq);
 void platform_wifi_mac_addr(u8 *mac_addr);
 #endif /* __PLATFORM_OPS_H__ */
